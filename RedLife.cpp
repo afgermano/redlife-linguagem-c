@@ -10,6 +10,8 @@ typedef struct {
     char bolsa_vinculada[20];
 } Paciente;
 
+Paciente p;
+
 typedef struct {
     char nome[100];
     char tipo_sanguineo[5];
@@ -36,11 +38,13 @@ void cadastrar_bolsa();
 void registro_triagem();
 void agendar_transfusao();
 void agendar_coleta();
+void exibir_paciente_menu();
  
 /* ===== FUNÇÕES ===== */
 
 /* ===== 0 - MENU (funções) ===== */
 void exibir_menu (){
+	system("cls");
 	printf("1- Cadastro de usuario\n");
 	printf("2- Cadastro de doador\n");
 	printf("3- Cadastro de paciente\n");
@@ -48,6 +52,7 @@ void exibir_menu (){
 	printf("5- Registro de triagem\n");
 	printf("6- Agendamento de transfusao\n");
 	printf("7- Agendamento de coleta\n");
+	printf("8- exibir paciente\n");
 	printf("0- Sair\n");
 }
 
@@ -67,6 +72,7 @@ void menu(){
 	        case 5: registro_triagem();        break;
 	        case 6: agendar_transfusao();      break;
 	        case 7: agendar_coleta();          break;
+	        case 8: exibir_paciente_menu();      break;
 	        case 0: system("cls"); printf("Programa encerrado...\n");     break;
 	        default: printf("Opcao invalida!\n");
 	    }
@@ -105,10 +111,28 @@ void cadastrar_paciente(Paciente *p) {
     printf("Código da bolsa vinculada: ");
     scanf(" %s", p->bolsa_vinculada);
 }
+void exibir_paciente(Paciente *p) {
+
+    printf("\n=========================================\n");
+    printf("          DADOS DO PACIENTE\n");
+    printf("=========================================\n");
+
+    printf("Nome do paciente : %s\n", p->nome);
+    printf("Tipo sanguineo   : %s\n", p->tipo_sanguineo);
+    printf("Bolsa vinculada  : %s\n", p->bolsa_vinculada);
+
+    printf("=========================================\n\n");
+    system("pause");
+}
 
 void cadastrar_paciente_menu() {
-    Paciente p;
+
     cadastrar_paciente(&p);
+}
+
+void exibir_paciente_menu(){
+	
+	exibir_paciente(&p);
 }
 
 //Parte Bia - Agendamento de transfusão e coleta de sangue
