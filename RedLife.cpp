@@ -249,10 +249,6 @@ void cadastrar_usuario(){
 void cadastrar_bolsa (){
 	
 }
- 
-void registro_triagem (){
-	
-}
 
 // Parte Felipe - Cadastro de paciente
 void cadastrar_paciente() {
